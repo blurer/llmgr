@@ -1,0 +1,32 @@
+{
+  "desktop": {
+    "name": "Local workstation",
+    "addr": "localhost",
+    "model_dir": "/path/to/models",
+    "default_model": "model.gguf",
+    "aliases": {
+      "m": "model.gguf"
+    },
+    "server": "~/bin/llama-server",
+    "port": 8087,
+    "remote": false,
+    "extra_args": "-c 32768 -ub 1024",
+    "model_args": {},
+    "temp_cmd": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits"
+  },
+  "remote-host": {
+    "name": "Remote GPU box",
+    "ssh_host": "remote",
+    "model_dir": "/path/to/models",
+    "default_model": "model.gguf",
+    "aliases": {
+      "m": "model.gguf"
+    },
+    "server": "/usr/local/bin/llama-server",
+    "port": 8087,
+    "remote": true,
+    "extra_args": "-c 32768 -ub 1024",
+    "model_args": {},
+    "fan_script": "sudo bash /path/to/fan-control/fan-control.sh"
+  }
+}
